@@ -16,7 +16,6 @@
 import phantom.app as phantom
 from phantom.base_connector import BaseConnector
 from phantom.action_result import ActionResult
-# from isitphishing_consts import *
 import requests
 import json
 from bs4 import BeautifulSoup
