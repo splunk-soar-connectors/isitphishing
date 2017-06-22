@@ -1,0 +1,137 @@
+{
+    "appid": "70dbb862-f178-4eb0-8341-84a43ee47a2d", 
+    "name": "isitPhishing", 
+    "description": "This app Implements <b>investigative</b> actions on the isitPhishing service", 
+    "type": "reputation", 
+    "product_vendor": "isitPhishing", 
+    "logo": "isitphishing.png", 
+    "product_name": "isitPhishing", 
+    "product_version_regex": ".*", 
+    "publisher": "Phantom", 
+    "license": "Copyright Phantom Cyber Corporation 2017", 
+    "app_version": "1.0.0", 
+    "utctime_updated": "2017-06-22T16:09:57.385841Z", 
+    "package_name": "phantom_isitphishing", 
+    "main_module": "isitphishing_connector.pyc", 
+    "min_phantom_version": "2.1.467", 
+    "app_wizard_version": "1.0.0", 
+    "configuration": {
+        "customer_name": {
+            "description": "Customer Name", 
+            "data_type": "string", 
+            "required": true, 
+            "value_list": [], 
+            "default": "", 
+            "order": 0
+        }, 
+        "customer_license": {
+            "description": "Customer License/API Key", 
+            "data_type": "string", 
+            "required": true, 
+            "value_list": [], 
+            "default": "", 
+            "order": 1
+        }
+    }, 
+    "actions": [
+        {
+            "action": "test connectivity", 
+            "identifier": "test_connectivity", 
+            "description": "Validate the asset configuration for connectivity using supplied configuration.", 
+            "verbose": "", 
+            "type": "test", 
+            "read_only": true, 
+            "parameters": {}, 
+            "output": [], 
+            "versions": "EQ(*)"
+        }, 
+        {
+            "action": "url reputation", 
+            "identifier": "url_reputation", 
+            "description": "Queries URL info.", 
+            "verbose": "", 
+            "type": "investigate", 
+            "read_only": true, 
+            "parameters": {
+                "url": {
+                    "description": "URL to query", 
+                    "data_type": "string", 
+                    "required": true, 
+                    "primary": true, 
+                    "contains": [ "url" ], 
+                    "value_list": [], 
+                    "default": "", 
+                    "order": 0
+                }
+            }, 
+            "render": {
+              "type": "table"
+            },
+            "output": [
+              {
+                "data_path": "action_result.data.*.reputation",
+                "data_type": "string",
+                "example_values": [
+                  "PHISHING",
+                  "SPAM",
+                  "UNKNOWN",
+                  "TIMEOUT",
+                  "NOT_EXPLORED",
+                  "REVOKED",
+                  "TOO_MANY_REQUESTS",
+                  "ERROR"
+                ]
+              },
+              {
+                "data_path": "action_result.status",
+                "data_type": "string",
+                "example_values": [
+                  "success", "failed"
+                ]
+              },
+              {
+                "data_path": "action_result.message",
+                "data_type": "string",
+                "example_values": [
+                  "Reputation: PHISHING"
+                ]
+              },
+              {
+                "data_path": "action_result.summary.reputation",
+                "data_type": "string",
+                "example_values": [
+                  "PHISHING",
+                  "SPAM",
+                  "UNKNOWN",
+                  "TIMEOUT",
+                  "NOT_EXPLORED",
+                  "REVOKED",
+                  "TOO_MANY_REQUESTS",
+                  "ERROR"
+                ],
+                "column_order": 0,
+                "column_name": "Reputation"
+              },
+              {
+                "data_path": "action_result.parameter.url",
+                "data_type": "string",
+                "example_values": [
+                  "http://www.thisisaphishingurl.com/"
+                ],
+                "contains": [ "url" ]
+              },
+              {
+                "data_path": "summary.total_objects",
+                "data_type": "numeric",
+                "example_values": [ "1" ]
+              },
+              {
+                "data_path": "summary.total_objects_successful",
+                "data_type": "numeric",
+                "example_values": [ "1" ]
+              }
+            ],
+            "versions": "EQ(*)"
+        }
+    ]
+}
