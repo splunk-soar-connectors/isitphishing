@@ -1,7 +1,7 @@
 {
     "appid": "70dbb862-f178-4eb0-8341-84a43ee47a2d", 
     "name": "isitPhishing", 
-    "description": "This app Implements <b>investigative</b> actions on the isitPhishing service", 
+    "description": "This app implements <b>investigative</b> actions on the isitPhishing service.", 
     "type": "reputation", 
     "product_vendor": "isitPhishing", 
     "logo": "isitphishing.png", 
