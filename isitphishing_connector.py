@@ -168,6 +168,14 @@ class IsitphishingConnector(BaseConnector):
 
         data = {}
         data['url'] = param['url']
+
+        # isitphishing website and API work differently, if www.google.com (minus the protocol) is queried
+        # on the website, a valid reply is returned,
+        # however for the same value, the API will return back with an 'ERROR (Invalid url)'
+        # so add a protocol before sending it out if not present
+        if (not phantom.is_url(data['url'])):
+            data['url'] = 'http://' + data['url']
+
         # make rest call
         ret_val, response = self._make_rest_call('/check', action_result, data)
 
