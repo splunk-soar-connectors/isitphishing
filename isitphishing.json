@@ -9,7 +9,7 @@
     "product_version_regex": ".*", 
     "publisher": "Phantom", 
     "license": "Copyright Phantom Cyber Corporation 2017", 
-    "app_version": "1.0.2", 
+    "app_version": "1.0.3", 
     "utctime_updated": "2017-07-05T21:06:56.000000Z", 
     "package_name": "phantom_isitphishing", 
     "main_module": "isitphishing_connector.pyc", 
