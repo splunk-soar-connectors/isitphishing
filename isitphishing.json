@@ -48,7 +48,7 @@
         {
             "action": "url reputation", 
             "identifier": "url_reputation", 
-            "description": "Queries URL info.", 
+            "description": "Query for URL reputation.", 
             "verbose": "", 
             "type": "investigate", 
             "read_only": true, 
