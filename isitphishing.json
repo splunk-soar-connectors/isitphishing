@@ -17,6 +17,9 @@
     "min_phantom_version": "4.9.39220",
     "app_wizard_version": "1.0.0",
     "python_version": "3",
+    "latest_tested_versions": [
+        "On local cloud, tested on 16th of June 2021"
+    ],
     "configuration": {
         "customer_name": {
             "description": "Customer Name",
