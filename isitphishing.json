@@ -1,35 +1,36 @@
 {
     "appid": "70dbb862-f178-4eb0-8341-84a43ee47a2d",
     "name": "isitPhishing",
-    "description": "This app implements <b>investigative</b> actions on the isitPhishing service.",
+    "description": "This app implements investigative actions on the isitPhishing service",
     "type": "reputation",
     "product_vendor": "isitPhishing",
-    "logo": "isitphishing.png",
+    "logo": "logo_isitphishing.svg",
+    "logo_dark": "logo_isitphishing_dark.svg",
     "product_name": "isitPhishing",
     "product_version_regex": ".*",
-    "publisher": "Phantom",
-    "license": "Copyright Phantom Cyber Corporation 2017",
-    "app_version": "1.0.7",
+    "publisher": "Splunk",
+    "license": "Copyright (c) 2017-2021 Splunk Inc.",
+    "app_version": "2.0.0",
     "utctime_updated": "2018-12-07T01:29:36.000000Z",
     "package_name": "phantom_isitphishing",
-    "main_module": "isitphishing_connector.pyc",
-    "min_phantom_version": "2.1.467",
+    "main_module": "isitphishing_connector.py",
+    "min_phantom_version": "4.9.39220",
     "app_wizard_version": "1.0.0",
+    "python_version": "3",
+    "latest_tested_versions": [
+        "Cloud, tested on  June 16, 2021"
+    ],
     "configuration": {
         "customer_name": {
             "description": "Customer Name",
             "data_type": "string",
             "required": true,
-            "value_list": [],
-            "default": "",
             "order": 0
         },
         "customer_license": {
             "description": "Customer License/API Key",
             "data_type": "string",
             "required": true,
-            "value_list": [],
-            "default": "",
             "order": 1
         }
     },
@@ -37,8 +38,7 @@
         {
             "action": "test connectivity",
             "identifier": "test_connectivity",
-            "description": "Validate the asset configuration for connectivity using supplied configuration.",
-            "verbose": "",
+            "description": "Validate the asset configuration for connectivity using supplied configuration",
             "type": "test",
             "read_only": true,
             "parameters": {},
@@ -48,8 +48,7 @@
         {
             "action": "url reputation",
             "identifier": "url_reputation",
-            "description": "Query for URL reputation.",
-            "verbose": "",
+            "description": "Query for URL reputation",
             "type": "investigate",
             "read_only": true,
             "parameters": {
@@ -62,8 +61,6 @@
                         "url",
                         "domain"
                     ],
-                    "value_list": [],
-                    "default": "",
                     "order": 0
                 }
             },
