@@ -29,7 +29,7 @@
         },
         "customer_license": {
             "description": "Customer License/API Key",
-            "data_type": "string",
+            "data_type": "password",
             "required": true,
             "order": 1
         }
