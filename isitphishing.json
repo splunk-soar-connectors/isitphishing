@@ -10,14 +10,14 @@
     "product_version_regex": ".*",
     "publisher": "Splunk",
     "license": "Copyright (c) 2017-2021 Splunk Inc.",
-    "app_version": "2.0.2",
-    "utctime_updated": "2021-06-24T18:06:49.000000Z",
+    "app_version": "2.0.3",
+    "utctime_updated": "2021-12-08T01:15:54.000000Z",
     "package_name": "phantom_isitphishing",
     "main_module": "isitphishing_connector.py",
     "min_phantom_version": "4.9.39220",
     "app_wizard_version": "1.0.0",
     "python_version": "3",
-    "fips_compliant":true,
+    "fips_compliant": true,
     "latest_tested_versions": [
         "Cloud, tested on  June 16, 2021"
     ],
