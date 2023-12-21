@@ -1,6 +1,6 @@
 # File: isitphishing_connector.py
 #
-# Copyright (c) 2017-2022 Splunk Inc.
+# Copyright (c) 2017-2023 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -185,6 +185,7 @@ class IsitphishingConnector(BaseConnector):
             data['url'] = 'http://' + data['url']
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/check', action_result, data)
 
         if (phantom.is_fail(ret_val)):
