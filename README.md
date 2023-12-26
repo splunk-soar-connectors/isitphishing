@@ -2,16 +2,16 @@
 # isitPhishing
 
 Publisher: Splunk  
-Connector Version: 2\.0\.6  
+Connector Version: 2.0.8  
 Product Vendor: isitPhishing  
 Product Name: isitPhishing  
-Product Version Supported (regex): "\.\*"  
-Minimum Product Version: 4\.9\.39220  
+Product Version Supported (regex): ".\*"  
+Minimum Product Version: 5.1.0  
 
 This app implements investigative actions on the isitPhishing service
 
 [comment]: # " File: README.md"
-[comment]: # "  Copyright (c) 2017-2022 Splunk Inc."
+[comment]: # "  Copyright (c) 2017-2023 Splunk Inc."
 [comment]: # ""
 [comment]: # "Licensed under the Apache License, Version 2.0 (the 'License');"
 [comment]: # "you may not use this file except in compliance with the License."
@@ -32,8 +32,8 @@ The below configuration variables are required for this Connector to operate.  T
 
 VARIABLE | REQUIRED | TYPE | DESCRIPTION
 -------- | -------- | ---- | -----------
-**customer\_name** |  required  | string | Customer Name
-**customer\_license** |  required  | password | Customer License/API Key
+**customer_name** |  required  | string | Customer Name
+**customer_license** |  required  | password | Customer License/API Key
 
 ### Supported Actions  
 [test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration  
@@ -63,12 +63,12 @@ PARAMETER | REQUIRED | DESCRIPTION | TYPE | CONTAINS
 **url** |  required  | URL to query | string |  `url`  `domain` 
 
 #### Action Output
-DATA PATH | TYPE | CONTAINS
---------- | ---- | --------
-action\_result\.data\.\*\.reputation | string | 
-action\_result\.status | string | 
-action\_result\.message | string | 
-action\_result\.summary\.reputation | string | 
-action\_result\.parameter\.url | string |  `url`  `domain` 
-summary\.total\_objects | numeric | 
-summary\.total\_objects\_successful | numeric | 
+DATA PATH | TYPE | CONTAINS | EXAMPLE VALUES
+--------- | ---- | -------- | --------------
+action_result.data.\*.reputation | string |  |   PHISHING  SPAM  UNKNOWN  TIMEOUT  NOT_EXPLORED  REVOKED  TOO_MANY_REQUESTS  ERROR (Invalid url) 
+action_result.status | string |  |   success  failed 
+action_result.message | string |  |   Reputation: PHISHING  Reputation: ERROR (Invalid url) 
+action_result.summary.reputation | string |  |   PHISHING  SPAM  UNKNOWN  TIMEOUT  NOT_EXPLORED  REVOKED  TOO_MANY_REQUESTS  ERROR (Invalid url) 
+action_result.parameter.url | string |  `url`  `domain`  |   http://www.thisisaphishingurl.com/  www.google.com 
+summary.total_objects | numeric |  |   1 
+summary.total_objects_successful | numeric |  |   1 
