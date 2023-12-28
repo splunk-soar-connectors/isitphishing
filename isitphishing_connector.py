@@ -1,6 +1,6 @@
 # File: isitphishing_connector.py
 #
-# Copyright (c) 2017-2022 Splunk Inc.
+# Copyright (c) 2017-2023 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -185,6 +185,7 @@ class IsitphishingConnector(BaseConnector):
             data['url'] = 'http://' + data['url']
 
         # make rest call
+        self.debug_print("Making REST Call")
         ret_val, response = self._make_rest_call('/check', action_result, data)
 
         if (phantom.is_fail(ret_val)):
@@ -248,7 +249,7 @@ if __name__ == '__main__':
 
     if (len(sys.argv) < 2):
         print("No test json specified as input")
-        exit(0)
+        sys.exit(0)
 
     with open(sys.argv[1]) as f:
         in_json = f.read()
@@ -260,4 +261,4 @@ if __name__ == '__main__':
         ret_val = connector._handle_action(json.dumps(in_json), None)
         print(json.dumps(json.loads(ret_val), indent=4))
 
-    exit(0)
+    sys.exit(0)
