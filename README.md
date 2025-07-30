@@ -1,7 +1,7 @@
 # isitPhishing
 
 Publisher: Splunk \
-Connector Version: 2.0.9 \
+Connector Version: 2.0.10 \
 Product Vendor: isitPhishing \
 Product Name: isitPhishing \
 Minimum Product Version: 5.1.0
