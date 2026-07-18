@@ -24,6 +24,7 @@ from phantom.action_result import ActionResult
 from phantom.base_connector import BaseConnector
 
 VALID_REPUTATIONS = frozenset({"PHISHING", "SPAM", "UNKNOWN", "REVOKED"})
+DEFAULT_REQUEST_TIMEOUT = 30
 
 
 class RetVal(tuple):
@@ -131,7 +132,7 @@ class IsitphishingConnector(BaseConnector):
         data.update({"version": 2, "force": "true", "name": config["customer_name"], "license": config["customer_license"]})
 
         try:
-            r = request_func(url, data=data)
+            r = request_func(url, data=data, timeout=DEFAULT_REQUEST_TIMEOUT)
         except Exception as e:
             return RetVal(action_result.set_status(phantom.APP_ERROR, f"Error Connecting to server. Details: {e!s}"), resp_text)
 
