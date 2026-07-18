@@ -1,6 +1,6 @@
 # File: isitphishing_connector.py
 #
-# Copyright (c) 2017-2025 Splunk Inc.
+# Copyright (c) 2017-2026 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import requests
 from bs4 import BeautifulSoup
 from phantom.action_result import ActionResult
 from phantom.base_connector import BaseConnector
+
 
 VALID_REPUTATIONS = frozenset({"PHISHING", "SPAM", "UNKNOWN", "REVOKED"})
 DEFAULT_REQUEST_TIMEOUT = 30
