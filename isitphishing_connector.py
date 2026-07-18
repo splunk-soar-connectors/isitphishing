@@ -23,6 +23,8 @@ from bs4 import BeautifulSoup
 from phantom.action_result import ActionResult
 from phantom.base_connector import BaseConnector
 
+VALID_REPUTATIONS = frozenset({"PHISHING", "SPAM", "UNKNOWN", "REVOKED"})
+
 
 class RetVal(tuple):
     def __new__(cls, val1, val2):
@@ -186,6 +188,12 @@ class IsitphishingConnector(BaseConnector):
         # Now post process the data,  uncomment code as you deem fit
 
         response = response.strip()
+        if response.upper() not in VALID_REPUTATIONS:
+            return action_result.set_status(
+                phantom.APP_ERROR,
+                f"isitPhishing did not return a valid reputation verdict: {response}",
+            )
+
         # Add the response into the data section
         action_result.add_data({"reputation": response})
 
