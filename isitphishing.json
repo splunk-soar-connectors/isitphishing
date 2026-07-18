@@ -51,7 +51,7 @@
             "identifier": "url_reputation",
             "description": "Query for URL reputation",
             "type": "investigate",
-            "read_only": true,
+            "read_only": false,
             "parameters": {
                 "url": {
                     "description": "URL to query",
