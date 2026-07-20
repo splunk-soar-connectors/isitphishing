@@ -1,6 +1,6 @@
 # File: isitphishing_connector.py
 #
-# Copyright (c) 2017-2025 Splunk Inc.
+# Copyright (c) 2017-2026 Splunk Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,6 +22,10 @@ import requests
 from bs4 import BeautifulSoup
 from phantom.action_result import ActionResult
 from phantom.base_connector import BaseConnector
+
+
+VALID_REPUTATIONS = frozenset({"PHISHING", "SPAM", "UNKNOWN", "REVOKED"})
+DEFAULT_REQUEST_TIMEOUT = 30
 
 
 class RetVal(tuple):
@@ -129,7 +133,7 @@ class IsitphishingConnector(BaseConnector):
         data.update({"version": 2, "force": "true", "name": config["customer_name"], "license": config["customer_license"]})
 
         try:
-            r = request_func(url, data=data)
+            r = request_func(url, data=data, timeout=DEFAULT_REQUEST_TIMEOUT)
         except Exception as e:
             return RetVal(action_result.set_status(phantom.APP_ERROR, f"Error Connecting to server. Details: {e!s}"), resp_text)
 
@@ -186,6 +190,12 @@ class IsitphishingConnector(BaseConnector):
         # Now post process the data,  uncomment code as you deem fit
 
         response = response.strip()
+        if response.upper() not in VALID_REPUTATIONS:
+            return action_result.set_status(
+                phantom.APP_ERROR,
+                f"isitPhishing did not return a valid reputation verdict: {response}",
+            )
+
         # Add the response into the data section
         action_result.add_data({"reputation": response})
 

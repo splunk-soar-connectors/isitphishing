@@ -1,9 +1,9 @@
 # isitPhishing
 
-Publisher: Splunk \
-Connector Version: 2.0.11 \
-Product Vendor: isitPhishing \
-Product Name: isitPhishing \
+Publisher: Splunk <br>
+Connector Version: 2.0.11 <br>
+Product Vendor: isitPhishing <br>
+Product Name: isitPhishing <br>
 Minimum Product Version: 5.1.0
 
 This app implements investigative actions on the isitPhishing service
@@ -19,14 +19,14 @@ VARIABLE | REQUIRED | TYPE | DESCRIPTION
 
 ### Supported Actions
 
-[test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration \
+[test connectivity](#action-test-connectivity) - Validate the asset configuration for connectivity using supplied configuration <br>
 [url reputation](#action-url-reputation) - Query for URL reputation
 
 ## action: 'test connectivity'
 
 Validate the asset configuration for connectivity using supplied configuration
 
-Type: **test** \
+Type: **test** <br>
 Read only: **True**
 
 #### Action Parameters
@@ -41,8 +41,8 @@ No Output
 
 Query for URL reputation
 
-Type: **investigate** \
-Read only: **True**
+Type: **investigate** <br>
+Read only: **False**
 
 #### Action Parameters
 
@@ -66,7 +66,7 @@ ______________________________________________________________________
 
 Auto-generated Splunk SOAR Connector documentation.
 
-Copyright 2025 Splunk Inc.
+Copyright 2026 Splunk Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

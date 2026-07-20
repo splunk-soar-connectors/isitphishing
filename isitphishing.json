@@ -9,7 +9,7 @@
     "product_name": "isitPhishing",
     "product_version_regex": ".*",
     "publisher": "Splunk",
-    "license": "Copyright (c) 2017-2025 Splunk Inc.",
+    "license": "Copyright (c) 2017-2026 Splunk Inc.",
     "app_version": "2.0.11",
     "utctime_updated": "2025-08-01T20:33:00.045228Z",
     "package_name": "phantom_isitphishing",
@@ -51,7 +51,7 @@
             "identifier": "url_reputation",
             "description": "Query for URL reputation",
             "type": "investigate",
-            "read_only": true,
+            "read_only": false,
             "parameters": {
                 "url": {
                     "description": "URL to query",
@@ -144,5 +144,11 @@
             ],
             "versions": "EQ(*)"
         }
-    ]
+    ],
+    "pip39_dependencies": {
+        "wheel": []
+    },
+    "pip313_dependencies": {
+        "wheel": []
+    }
 }
